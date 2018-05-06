@@ -9,8 +9,7 @@ defmodule Words do
     sentence
       |> String.replace(~r/[^a-z-_\s\d\p{L}]/ui, "")
       |> String.replace("_", " ")
-      |> String.split(" ")
-      |> Enum.filter(fn word -> word != "" end)
+      |> String.split
       |> Enum.map(fn word -> String.downcase word end )
       |> Enum.reduce(%{}, &gen_count_map/2 )
   end
